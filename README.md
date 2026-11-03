@@ -1,79 +1,78 @@
 # TinyEd
 
-**Der kleine Editor für Texte, Ideen und Projekte – mit KI an deiner Seite.**
+**The tiny editor for text, ideas and projects – with AI at your side.**
 
-TinyEd ist ein schlanker Editor für macOS. Er startet schnell, sieht aufgeräumt aus und bringt
-alles mit, was man für Notizen, Konzepte und kleine Projekte braucht: Texte schreiben, Aufgaben
-auf einem Board ordnen, Ideen auf einem Whiteboard skizzieren und Screenshots beschriften –
-alles in einem Fenster.
+TinyEd is a lightweight editor for macOS. It starts fast, looks clean and comes with everything
+you need for notes, concepts and small projects: write text, organize tasks on a board, sketch
+ideas on a whiteboard and annotate screenshots – all in one window.
 
-**Neueste Version:** [TinyEd.dmg herunterladen](https://github.com/omc69/TinyEd--/releases/latest/download/TinyEd.dmg)
+**Latest version:** [Download TinyEd.dmg](https://github.com/omc69/TinyEd--/releases/latest/download/TinyEd.dmg)
 
 ---
 
-## Was TinyEd kann
+## What TinyEd does
 
-### Schreiben
-- Ruhiger Editor mit Zeilennummern, Zeilenumbruch und mehreren Farbprofilen
-- Ausgewählte Programmierschriften zur Wahl
-- Suchen & Ersetzen
-- Markdown wahlweise als Quelltext oder formatiert ansehen
-- Zwei Dokumente nebeneinander bearbeiten
+### Writing
+- Calm editor with line numbers, word wrap and several color themes
+- A selection of coding fonts to choose from
+- Find & Replace
+- View Markdown as source or formatted
+- Edit two documents side by side
 
-### KI-Assistent
-- Texte verbessern, Grammatik und Rechtschreibung korrigieren
-- Übersetzen (Deutsch ↔ Englisch), zusammenfassen, erweitern
-- Ton anpassen – förmlich oder locker
-- Prompts für KI-Werkzeuge optimieren
-- Ergebnis vorher ansehen, dann mit einem Klick übernehmen oder verwerfen
-- Links, E-Mail-Adressen und Dateipfade bleiben dabei unverändert
+### AI assistant
+- Improve text, fix grammar and spelling
+- Translate (German ↔ English), summarize, expand
+- Adjust the tone – formal or casual
+- Optimize prompts for AI tools
+- Preview the result first, then apply or discard it with one click
+- Links, email addresses and file paths stay untouched
 
-### Kanban-Boards
-- Aufgaben in fünf Spalten von Backlog bis Done
-- Karten per Drag & Drop verschieben, einfärben, duplizieren
-- Ein Board lässt sich mit einem Dokument verbinden und öffnet es gleich mit
+### Kanban boards
+- Tasks in five columns, from Backlog to Done
+- Move cards by drag & drop, color them, duplicate them
+- Connect a board to a document so both open together
 
 ### Whiteboard
-- Freies Skizzieren von Ideen, Abläufen und Entwürfen
+- Freely sketch ideas, flows and drafts
 
-### Projekte
-- Ein Projekt bündelt Dokument, Board und Whiteboard – umgeschaltet wird über Tabs
-- Gedacht auch für die Arbeit mit Claude: Agenten können Aufgaben auf dem Board
-  übernehmen und abarbeiten, während du den Fortschritt live verfolgst
+### Projects
+- A project bundles a document, a board and a whiteboard – switch between them with tabs
+- Built for working with Claude as well: agents can pick up tasks on the board and work
+  through them while you follow the progress live
 
-### Bilder beschriften
-- Screenshots mit Pfeilen, Rahmen, Kreisen, Freihand und Text markieren
+### Annotate images
+- Mark up screenshots with arrows, boxes, circles, freehand drawing and text
 
-### Claude-Nutzung im Blick
-- Deine 5-Stunden- und 7-Tage-Limits von Claude direkt in der Seitenleiste
+### Keep an eye on your Claude usage
+- Your 5-hour and 7-day Claude limits right in the sidebar
 
-### Außerdem
-- Ablage in iCloud Drive, damit deine Dateien auf allen Macs verfügbar sind
-- Deutsch und Englisch
-- Automatische Updates
-
----
-
-## Was du brauchst
-
-- **Einen Mac mit Apple Silicon und macOS 14 oder neuer.**
-- **Ein Konto bei [OpenRouter.ai](https://openrouter.ai)** mit eigenem API-Key für den KI-Assistenten.
-  Die Nutzung wird von OpenRouter nach Verbrauch abgerechnet. Den Key trägst du einmal in den
-  Einstellungen von TinyEd ein. Ohne Key funktioniert TinyEd als Editor, nur der KI-Assistent bleibt aus.
-- **Ein Claude-Abo (Pro oder Max)** für die Anzeige deiner Claude-Limits und die Arbeit mit
-  Claude-Agenten in Projekten. Die Anmeldung erfolgt in den Einstellungen über deinen Browser.
-
-TinyEd ist ein unabhängiges Projekt und steht in keiner Verbindung zu Anthropic oder OpenRouter.
+### Also
+- Storage in iCloud Drive, so your files are available on all your Macs
+- English and German
+- Automatic updates
 
 ---
 
-## Installation & Updates
+## What you need
 
-1. [TinyEd.dmg herunterladen](https://github.com/omc69/TinyEd--/releases/latest/download/TinyEd.dmg) und öffnen.
-2. TinyEd in den Ordner „Programme" ziehen.
-3. Starten – fertig.
+- **A Mac with Apple silicon and macOS 14 or later.**
+- **An [OpenRouter.ai](https://openrouter.ai) account** with your own API key for the AI assistant.
+  OpenRouter bills by usage. You enter the key once in TinyEd's settings. Without a key, TinyEd
+  works as an editor – only the AI assistant is unavailable.
+- **A Claude subscription (Pro or Max)** to show your Claude limits and to work with Claude agents
+  in projects. You sign in from the settings via your browser.
 
-Die Programmpakete sind signiert und von Apple notarisiert. Installierte Versionen aktualisieren
-sich selbst (TinyEd › Nach Updates suchen …).
+TinyEd is an independent project and is not affiliated with Anthropic or OpenRouter.
 
-Dieses Repository enthält nur die fertigen Programmpakete, keinen Quellcode.
+---
+
+## Installation & updates
+
+1. [Download TinyEd.dmg](https://github.com/omc69/TinyEd--/releases/latest/download/TinyEd.dmg) and open it.
+2. Drag TinyEd into your Applications folder.
+3. Launch it – done.
+
+The app is signed and notarized by Apple. Installed versions update themselves
+(TinyEd › Check for Updates…).
+
+This repository contains only the finished app packages, no source code.
