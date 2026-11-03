@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TinyEd – Manual</title>
+  <meta name="description" content="The TinyEd manual: writing and editing text, find and replace, the dual editor, the AI assistant, image markup, Kanban boards, whiteboards, projects, the agent shell, themes and keyboard shortcuts.">
+  <style>
+    mark.hit { background: #f7dcdb; color: #5a0100; border-radius: 3px; padding: 0 1px; }
+    kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .75em; padding: .1em .45em;
+          border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 5px; background: #f8fafc; color: #334155; }
+    .doc-section { scroll-margin-top: 5.5rem; }
+    .doc-section h3 { font-weight: 700; color: #0f172a; font-size: 1.05rem; margin-top: 1.75rem; }
+    .doc-section > div p, .doc-section > div ul, .doc-section > div ol { margin-top: .75rem; line-height: 1.7; }
+    .doc-section > div ul { list-style: disc; padding-left: 1.25rem; }
+    .doc-section > div ol { list-style: decimal; padding-left: 1.25rem; }
+    .doc-section > div li + li { margin-top: .35rem; }
+    .doc-section code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em;
+          background: #f1f5f9; padding: .1em .35em; border-radius: 4px; color: #0f172a; }
+    #toc a.active { color: #c70300; background: #fcf0f0; font-weight: 600; }
+  </style>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link href="assets/css/fonts.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-slate-700 antialiased">
+
+  <!-- Header -->
+  <header id="header" class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <div id="header-inner" class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
+      <a id="header-logo" href="#" class="flex shrink-0 items-center gap-2 font-extrabold text-slate-900">
+        <span id="header-logo-mark" class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm text-white">TE</span>
+        <span id="header-logo-text" class="hidden sm:inline">TinyEd <span class="font-medium text-slate-400">Manual</span></span>
+      </a>
+      <div id="header-search" class="relative ml-auto w-full max-w-md">
+        <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+        <input id="header-search-input" type="search" autocomplete="off" placeholder="Search the manual …" aria-label="Search the manual"
+               class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-16 text-sm outline-none transition focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-100">
+        <span id="header-search-count" class="absolute right-11 top-1/2 -translate-y-1/2 text-xs font-semibold text-brand-600"></span>
+        <kbd id="header-search-kbd" class="absolute right-3 top-1/2 -translate-y-1/2">/</kbd>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="hero" class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-900 text-white">
+      <div id="hero-glow" class="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-600/40 blur-3xl"></div>
+      <div id="hero-inner" class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+        <p id="hero-eyebrow" class="text-sm font-semibold uppercase tracking-widest text-brand-100">User manual</p>
+        <h1 id="hero-title" class="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">Write, plan and sketch in one small Mac app.</h1>
+        <p id="hero-text" class="mt-5 max-w-2xl text-lg text-slate-300">TinyEd is a small text editor for macOS with a dual editor, an AI assistant, image markup, Kanban boards and whiteboards. This manual shows you how everything works.</p>
+        <div id="hero-buttons" class="mt-8 flex flex-wrap gap-3">
+          <a id="hero-button-start" href="#getting-started" class="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-brand-900/40 transition hover:bg-brand-500">Get started</a>
+          <a id="hero-button-shortcuts" href="#shortcuts" class="rounded-xl border border-white/20 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10">Keyboard shortcuts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Docs -->
+    <div id="docs" class="mx-auto flex max-w-7xl gap-10 px-4 py-12 sm:px-6">
+      <aside id="toc" class="sticky top-24 hidden max-h-[calc(100vh-7rem)] w-60 shrink-0 self-start overflow-y-auto lg:block">
+        <p id="toc-title" class="px-3 text-xs font-bold uppercase tracking-widest text-slate-400">Contents</p>
+        <ul id="toc-list" class="mt-3 space-y-0.5 text-sm">
+          <li><a href="#getting-started" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Getting started</a></li>
+          <li><a href="#main-window" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">The main window</a></li>
+          <li><a href="#text-editing" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Writing and editing text</a></li>
+          <li><a href="#find-replace" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Find and replace</a></li>
+          <li><a href="#dual-editor" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Dual editor</a></li>
+          <li><a href="#ai-assistant" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">AI assistant</a></li>
+          <li><a href="#image-markup" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Annotating images</a></li>
+          <li><a href="#kanban" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Kanban boards</a></li>
+          <li><a href="#whiteboards" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Whiteboards</a></li>
+          <li><a href="#projects" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Projects</a></li>
+          <li><a href="#agents" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Working with AI agents</a></li>
+          <li><a href="#appearance" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Fonts, themes and settings</a></li>
+          <li><a href="#shortcuts" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Keyboard shortcuts</a></li>
+          <li><a href="#faq" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">FAQ</a></li>
+        </ul>
+      </aside>
+
+      <div id="content" class="min-w-0 max-w-3xl flex-1">
+        <div id="search-empty" class="hidden rounded-2xl border border-dashed border-slate-300 p-10 text-center text-slate-500">No results. Try another search term.</div>
+
+        <!-- Getting started -->
+        <section id="getting-started" class="doc-section pb-12">
+          <div id="getting-started-en">
+            <h2 id="getting-started-en-title" class="text-3xl font-extrabold tracking-tight text-slate-900">Getting started</h2>
+            <p id="getting-started-en-text">TinyEd is a small, fast editor for macOS. It opens plain text, Markdown and source code. You can also annotate screenshots, plan tasks on Kanban boards and sketch on whiteboards – all in one window.</p>
+            <h3 id="getting-started-en-title-2">Install TinyEd</h3>
+            <ol id="getting-started-en-list">
+              <li>Download the latest <code>TinyEd.dmg</code> from the <a id="getting-started-en-link" href="https://github.com/omc69/TinyEd--/releases/latest" class="font-semibold text-brand-600 hover:underline">TinyEd releases page</a>.</li>
+              <li>Open the disk image and drag <em>TinyEd</em> into your <em>Applications</em> folder.</li>
+              <li>Start TinyEd. The app is signed and notarized by Apple, so it opens without a warning.</li>
+            </ol>
+            <h3 id="getting-started-en-title-3">Updates</h3>
+            <p id="getting-started-en-text-2">TinyEd checks for new versions once a day. To check right away, choose <em>TinyEd › Check for Updates…</em>. The update dialog shows what is new before you install.</p>
+            <h3 id="getting-started-en-title-4">What you need</h3>
+            <ul id="getting-started-en-list-2">
+              <li>A Mac with macOS 14 Sonoma or later.</li>
+              <li>Optional: iCloud Drive. TinyEd stores new files in the <em>TinyEd</em> folder in iCloud Drive. Without iCloud Drive it uses your <em>Documents</em> folder.</li>
+              <li>Optional: your own OpenRouter API key for the <a id="getting-started-en-link-2" href="#ai-assistant" class="font-semibold text-brand-600 hover:underline">AI assistant</a>.</li>
+            </ul>
+            <div id="getting-started-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> Everything except the AI assistant works offline and without an account.
+            </div>
+          </div>
+        </section>
+
+        <!-- The main window -->
+        <section id="main-window" class="doc-section border-t border-slate-200 py-12">
+          <div id="main-window-en">
+            <h2 id="main-window-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">The main window</h2>
+            <p id="main-window-en-text">The window has four areas. Every command applies to the active document.</p>
+            <ol id="main-window-en-list">
+              <li><strong>Sidebar</strong> – all commands in sections you can fold: <em>New</em>, <em>File</em>, <em>Files</em>, <em>Projects</em>, <em>Kanban</em>, <em>Whiteboards</em>, <em>Edit</em>, <em>View</em>, <em>AI Assistant</em>, <em>Image</em> and <em>Themes</em>. Show or hide it with <kbd>⌃</kbd><kbd>⌘</kbd><kbd>S</kbd>.</li>
+              <li><strong>Header</strong> – the tabs <em>Documents</em>, <em>Kanban</em> and <em>Whiteboard</em>, the connector between document and board, and the file name with its save lamp.</li>
+              <li><strong>Editor</strong> – where you write, annotate, plan or draw.</li>
+              <li><strong>Status bar</strong> – line and column, word and character count, and the <em>Dual editor</em> switch.</li>
+            </ol>
+            <h3 id="main-window-en-title-2">The save lamp</h3>
+            <p id="main-window-en-text-2">The dot before the file name shows the state of your document: <strong>green</strong> means <em>Saved</em>, <strong>orange</strong> means <em>Unsaved changes</em>.</p>
+            <h3 id="main-window-en-title-3">The New button</h3>
+            <p id="main-window-en-text-3">The <em>New</em> button at the top of the sidebar creates or opens a document, project, board or whiteboard.</p>
+            <h3 id="main-window-en-title-4">The file browser</h3>
+            <p id="main-window-en-text-4">The <em>Files</em> section shows a folder tree with all files TinyEd can open. Click a file to open it in the active editor. <em>Choose Folder</em> sets the root folder, and TinyEd remembers it. <em>Refresh</em> reloads the tree.</p>
+            <p id="main-window-en-text-5">When you switch to another file, TinyEd saves a named file silently. For an untitled draft it asks first.</p>
+          </div>
+          <figure id="main-window-figure" class="mt-8">
+            <div id="main-window-figure-window" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/15">
+              <div id="main-window-figure-titlebar" class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3 py-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+                <span class="flex-1 text-center text-[11px] font-semibold text-slate-500">TinyEd</span><span class="w-10"></span>
+              </div>
+              <div id="main-window-figure-body" class="flex h-80">
+                <div id="main-window-figure-sidebar" class="flex w-36 shrink-0 flex-col border-r border-slate-200 bg-slate-50 p-2.5 text-[9px] sm:w-40">
+                  <div class="rounded-md bg-brand-600 py-1 text-center font-semibold text-white">+ New</div>
+                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">File</p>
+                  <div class="mt-1.5 space-y-1.5"><div class="h-1.5 w-20 rounded bg-slate-300"></div><div class="h-1.5 w-16 rounded bg-slate-300"></div></div>
+                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">Files</p>
+                  <div class="mt-1 space-y-0.5 text-slate-600">
+                    <p>▾ Notes</p>
+                    <p class="rounded bg-brand-50 pl-3 font-semibold text-brand-700">Release.md</p>
+                    <p class="pl-3">Ideas.txt</p>
+                    <p class="pl-3">Screenshot.png</p>
+                  </div>
+                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">AI Assistant</p>
+                  <div class="mt-1.5 space-y-1.5"><div class="h-1.5 w-20 rounded bg-slate-300"></div><div class="h-1.5 w-14 rounded bg-slate-300"></div></div>
+                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">Themes</p>
+                  <div class="mt-1.5 h-1.5 w-16 rounded bg-slate-300"></div>
+                  <div class="mt-auto rounded-md border border-slate-200 bg-white p-1.5 text-[8px] text-slate-500">
+                    <div class="flex justify-between"><span>5 h</span><span>42 %</span></div>
+                    <div class="mt-0.5 h-1 rounded bg-slate-200"><div class="h-1 w-2/5 rounded bg-brand-500"></div></div>
+                  </div>
+                </div>
+                <div id="main-window-figure-main" class="flex min-w-0 flex-1 flex-col">
+                  <div id="main-window-figure-header" class="flex items-center gap-2 border-b border-slate-200 px-3 py-1.5 text-[10px]">
+                    <span class="rounded-md bg-slate-900 px-2 py-0.5 font-semibold text-white">Documents</span>
+                    <span class="rounded-md px-2 py-0.5 text-slate-500">Kanban</span>
+                    <span class="ml-auto flex items-center gap-1.5 text-slate-600"><span class="h-2 w-2 rounded-full bg-orange-400"></span>Release.md</span>
+                  </div>
+                  <div id="main-window-figure-editor" class="flex-1 space-y-2 p-4 font-mono text-[10px] text-slate-700">
+                    <p class="font-bold text-slate-900"># Release notes</p>
+                    <div class="h-1.5 w-11/12 rounded bg-slate-300"></div>
+                    <div class="h-1.5 w-4/5 rounded bg-slate-300"></div>
+                    <div class="h-1.5 w-2/3 rounded bg-slate-300"></div>
+                    <p class="pt-2 font-bold text-slate-900">## Fixed</p>
+                    <div class="h-1.5 w-3/4 rounded bg-slate-300"></div>
+                    <div class="h-1.5 w-1/2 rounded bg-slate-300"></div>
+                  </div>
+                  <div id="main-window-figure-status" class="flex items-center gap-3 border-t border-slate-200 bg-slate-50 px-3 py-1.5 text-[9px] text-slate-500">
+                    <span>Line 12, Column 4</span><span class="hidden sm:inline">248 words · 1,532 characters</span>
+                    <span class="ml-auto flex items-center gap-1">Dual editor <span class="flex h-3 w-5 items-center rounded-full bg-slate-300 p-0.5"><span class="h-2 w-2 rounded-full bg-white"></span></span></span>
+                  </div>
+                </div>
+              </div>
+              <span id="main-window-figure-callout-1" class="absolute left-[8.5rem] top-24 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white sm:left-[9.5rem]">1</span>
+              <span id="main-window-figure-callout-2" class="absolute right-24 top-[2.4rem] flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
+              <span id="main-window-figure-callout-3" class="absolute right-10 top-1/2 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">3</span>
+              <span id="main-window-figure-callout-4" class="absolute bottom-0.5 left-1/2 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">4</span>
+            </div>
+            <figcaption id="main-window-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Sidebar with the Claude limits at the bottom · ② Header with tabs and save lamp · ③ Editor · ④ Status bar with the Dual editor switch</figcaption>
+          </figure>
+        </section>
+
+        <!-- Writing and editing text -->
+        <section id="text-editing" class="doc-section border-t border-slate-200 py-12">
+          <div id="text-editing-en">
+            <h2 id="text-editing-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Writing and editing text</h2>
+            <p id="text-editing-en-text">TinyEd opens plain text, Markdown, configuration files and source code – for example <code>.txt</code>, <code>.md</code>, <code>.json</code>, <code>.yaml</code>, <code>.toml</code>, <code>.ini</code>, <code>.env</code>, <code>.sh</code>, <code>.swift</code>, <code>.py</code>, <code>.go</code>, <code>.rs</code> and <code>.sql</code>. Rich text (RTF) is not supported.</p>
+            <h3 id="text-editing-en-title-2">Open and save</h3>
+            <ul id="text-editing-en-list">
+              <li><em>New</em> <kbd>⌘</kbd><kbd>N</kbd> starts an empty document.</li>
+              <li><em>Open…</em> <kbd>⌘</kbd><kbd>O</kbd> opens a file. You can also drag files from the Finder into the window.</li>
+              <li><em>Save</em> <kbd>⌘</kbd><kbd>S</kbd> and <em>Save As…</em> <kbd>⇧</kbd><kbd>⌘</kbd><kbd>S</kbd> save the active document.</li>
+              <li><em>File › Recent Files</em> lists your last ten files. Open the first nine with <kbd>⌘</kbd><kbd>1</kbd> to <kbd>⌘</kbd><kbd>9</kbd>. <em>Clear Menu</em> empties the list.</li>
+            </ul>
+            <p id="text-editing-en-text-2">A new document is called <em>Untitled</em>. If you close a document with unsaved changes, TinyEd asks: <em>Save</em>, <em>Don’t Save</em> or <em>Cancel</em>.</p>
+            <h3 id="text-editing-en-title-3">Undo and redo</h3>
+            <p id="text-editing-en-text-3">Use <kbd>⌘</kbd><kbd>Z</kbd> to undo and <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd> to redo, or the buttons in the <em>Edit</em> section. A change made by the AI assistant is one single undo step.</p>
+            <h3 id="text-editing-en-title-4">Word wrap</h3>
+            <p id="text-editing-en-text-4">Turn on <em>Word wrap</em> in the <em>View</em> section or under <em>View › Word Wrap</em> to wrap long lines. Turn it off to scroll horizontally instead – handy for code and logs.</p>
+            <h3 id="text-editing-en-title-5">Markdown preview</h3>
+            <p id="text-editing-en-text-5">For Markdown files, a switch in the header toggles between <em>Source (editable)</em> and <em>Formatted (read-only)</em>. The shortcut is <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd>. To type again, switch back to the source view.</p>
+            <h3 id="text-editing-en-title-6">Counts in the status bar</h3>
+            <p id="text-editing-en-text-6">The status bar shows the cursor position (<em>Line 12, Column 4</em>), the number of words and characters, and how many characters you have selected.</p>
+          </div>
+        </section>
+
+        <!-- Find and replace -->
+        <section id="find-replace" class="doc-section border-t border-slate-200 py-12">
+          <div id="find-replace-en">
+            <h2 id="find-replace-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Find and replace</h2>
+            <p id="find-replace-en-text">Press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>F</kbd> or choose <em>Edit › Find and Replace…</em>. The <em>Find &amp; Replace</em> panel opens above the editor.</p>
+            <ol id="find-replace-en-list">
+              <li>Type your search into <em>Find…</em>. The counter shows the current match and the total, for example <em>1/5</em>.</li>
+              <li>Jump with <em>Find Next</em> (<kbd>↩</kbd>) and <em>Find Previous</em>.</li>
+              <li>Type the new text into <em>Replace with…</em>. Then click <em>Replace</em> for the current match or <em>Replace All</em> for every match.</li>
+              <li>Close the panel with <em>Close</em> or <kbd>Esc</kbd>.</li>
+            </ol>
+            <p id="find-replace-en-text-2">Two options refine the search: <em>Case Sensitive</em> and <em>Regular Expression</em>. The classic macOS find bar is still there, too: <kbd>⌘</kbd><kbd>F</kbd>, <kbd>⌘</kbd><kbd>G</kbd> and <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>.</p>
+            <div id="find-replace-en-tips" class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm">
+              <strong class="text-slate-900">Tips for regular expressions:</strong>
+              <ul id="find-replace-en-tips-list">
+                <li><code>\s+$</code> finds spaces at the end of lines – replace them with nothing.</li>
+                <li><code>^\s+</code> finds indentation at the start of lines.</li>
+                <li><code>\bTODO\b</code> finds the word TODO, but not TODOS.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dual editor -->
+        <section id="dual-editor" class="doc-section border-t border-slate-200 py-12">
+          <div id="dual-editor-en">
+            <h2 id="dual-editor-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Dual editor</h2>
+            <p id="dual-editor-en-text">Work on two files side by side. Turn on the <em>Dual editor</em> switch at the bottom right of the status bar. A second, empty editor opens on the right.</p>
+            <ul id="dual-editor-en-list">
+              <li>Each editor holds text <strong>or</strong> an image: text and a screenshot, two text files, or two images.</li>
+              <li>The <strong>active</strong> editor has a yellow frame. All sidebar and menu commands apply to it.</li>
+              <li>Click into an editor to make it active, or press <kbd>⇧</kbd><kbd>⇥</kbd> to switch.</li>
+              <li>Each editor has its own header with save lamp and file name (<em>Untitled 1</em>, <em>Untitled 2</em>). The status bar shows the active one.</li>
+            </ul>
+            <h3 id="dual-editor-en-title-2">Back to one editor</h3>
+            <p id="dual-editor-en-text-2">Turn the switch off. The active editor stays, the other one closes – TinyEd asks you to save if needed. An empty editor never replaces one with content, so you cannot lose text by accident.</p>
+            <div id="dual-editor-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> Font and color profile apply to both editors.
+            </div>
+          </div>
+          <figure id="dual-editor-figure" class="mt-8">
+            <div id="dual-editor-figure-window" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/15">
+              <div id="dual-editor-figure-titlebar" class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3 py-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+                <span class="flex-1 text-center text-[11px] font-semibold text-slate-500">TinyEd</span><span class="w-10"></span>
+              </div>
+              <div id="dual-editor-figure-panes" class="grid h-56 grid-cols-2 gap-3 bg-slate-100 p-3">
+                <div id="dual-editor-figure-pane-1" class="flex flex-col overflow-hidden rounded-lg bg-white shadow-[0_0_0_2px_#facc15,0_0_14px_rgba(250,204,21,.6)]">
+                  <div class="flex items-center gap-1.5 border-b border-slate-200 px-2.5 py-1 text-[10px] text-slate-600"><span class="h-2 w-2 rounded-full bg-orange-400"></span>Bug report.md</div>
+                  <div class="flex-1 space-y-2 p-3"><div class="h-1.5 w-11/12 rounded bg-slate-300"></div><div class="h-1.5 w-4/5 rounded bg-slate-300"></div><div class="h-1.5 w-3/4 rounded bg-slate-300"></div><div class="h-1.5 w-1/2 rounded bg-slate-300"></div></div>
+                </div>
+                <div id="dual-editor-figure-pane-2" class="flex flex-col overflow-hidden rounded-lg bg-white">
+                  <div class="flex items-center gap-1.5 border-b border-slate-200 px-2.5 py-1 text-[10px] text-slate-600"><span class="h-2 w-2 rounded-full bg-green-500"></span>Screenshot.png</div>
+                  <div class="relative flex-1 bg-slate-200 p-3">
+                    <div class="h-full rounded bg-white/80"></div>
+                    <div class="absolute left-8 top-6 h-10 w-20 rounded border-2 border-brand-600"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="dual-editor-figure-status" class="flex items-center gap-3 border-t border-slate-200 bg-slate-50 px-3 py-1.5 text-[9px] text-slate-500">
+                <span>Line 3, Column 18</span>
+                <span class="ml-auto">⇧⇥</span>
+                <span class="flex items-center gap-1">Dual editor <span class="flex h-3 w-5 items-center justify-end rounded-full bg-brand-600 p-0.5"><span class="h-2 w-2 rounded-full bg-white"></span></span></span>
+              </div>
+              <span id="dual-editor-figure-callout-1" class="absolute left-5 top-14 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">1</span>
+              <span id="dual-editor-figure-callout-2" class="absolute bottom-0.5 right-24 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
+            </div>
+            <figcaption id="dual-editor-figure-caption" class="mt-3 text-center text-sm text-slate-500">① The active editor with the yellow frame · ② ⇧⇥ hint and the Dual editor switch</figcaption>
+          </figure>
+        </section>
+
+        <!-- AI assistant -->
+        <section id="ai-assistant" class="doc-section border-t border-slate-200 py-12">
+          <div id="ai-assistant-en">
+            <h2 id="ai-assistant-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">AI assistant</h2>
+            <p id="ai-assistant-en-text">The AI assistant improves, corrects, translates or summarizes your text. It works on the selected text. If nothing is selected, it works on the whole document.</p>
+            <h3 id="ai-assistant-en-title-2">Set it up once</h3>
+            <ol id="ai-assistant-en-list">
+              <li>Create an API key at <a id="ai-assistant-en-link" href="https://openrouter.ai/keys" class="font-semibold text-brand-600 hover:underline">openrouter.ai/keys</a>.</li>
+              <li>Open <em>TinyEd › Settings…</em> (<kbd>⌘</kbd><kbd>,</kbd>) and go to <em>AI Assistant</em>.</li>
+              <li>Paste the key (it starts with <code>sk-or-v1-</code>) and click <em>Save</em>. TinyEd checks the key right away and stores it in your keychain.</li>
+              <li>Optional: pick another <em>Default Model</em>.</li>
+            </ol>
+            <h3 id="ai-assistant-en-title-3">The eight functions</h3>
+            <ul id="ai-assistant-en-list-2">
+              <li><em>Improve Text</em> – clearer style, same language.</li>
+              <li><em>Grammar &amp; Spelling</em> – fixes mistakes, nothing else.</li>
+              <li><em>Translate (EN/DE)</em> – detects the language and translates English to German or German to English.</li>
+              <li><em>Summarize</em> – a short summary.</li>
+              <li><em>Expand Text</em> – adds details and full sentences.</li>
+              <li><em>Make Formal</em> – a professional, business tone.</li>
+              <li><em>Make Casual</em> – a relaxed, friendly tone.</li>
+              <li><em>Optimize Prompt</em> – rewrites a prompt for an AI so it gets better answers.</li>
+            </ul>
+            <h3 id="ai-assistant-en-title-4">Use it</h3>
+            <ol id="ai-assistant-en-list-3">
+              <li>Select text, or select nothing to use the whole document.</li>
+              <li>Pick a function in the <em>AI Assistant</em> section of the sidebar or in the <em>AI</em> menu of the header. <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> opens the assistant directly.</li>
+              <li>Click <em>Process</em>. Compare <em>Original</em> and <em>AI Result</em> side by side.</li>
+              <li>Not happy? Click <em>Regenerate</em> for another version.</li>
+              <li>Click <em>Apply</em>. The result replaces your text – <kbd>⌘</kbd><kbd>Z</kbd> brings the original back.</li>
+            </ol>
+            <div id="ai-assistant-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> Links, email addresses and file paths stay exactly as they are – TinyEd checks the result and restores them if needed. Your text goes to OpenRouter only when you click <em>Process</em>. OpenRouter bills the usage to your account.
+            </div>
+          </div>
+          <figure id="ai-assistant-figure" class="mt-8">
+            <div id="ai-assistant-figure-stage" class="relative rounded-2xl bg-slate-200 p-5 sm:p-8">
+              <div id="ai-assistant-figure-card" class="rounded-[20px] bg-white p-4 shadow-2xl">
+                <div id="ai-assistant-figure-head" class="flex items-center justify-between text-[11px] font-bold text-slate-900">
+                  <span><span class="text-purple-500">✨</span> AI Text Assistant</span><span class="text-slate-400">✕</span>
+                </div>
+                <div id="ai-assistant-figure-columns" class="mt-3 grid grid-cols-[1fr_auto_1fr] items-stretch gap-2 text-[10px]">
+                  <div>
+                    <p class="font-semibold text-slate-500">Original</p>
+                    <div class="mt-1 h-24 rounded-lg border border-slate-200 bg-slate-50 p-2 font-mono text-slate-600">the release fix the login bug and make export faster</div>
+                  </div>
+                  <div class="flex items-center text-slate-400">→</div>
+                  <div>
+                    <p class="font-semibold text-purple-600">AI Result</p>
+                    <div class="mt-1 h-24 rounded-lg border border-purple-200 bg-purple-50 p-2 font-mono text-slate-700">This release fixes the login bug and makes exporting faster.</div>
+                  </div>
+                </div>
+                <div id="ai-assistant-figure-buttons" class="mt-3 flex flex-wrap items-center gap-1.5 text-[10px] font-semibold">
+                  <span class="rounded-md border border-slate-200 px-2.5 py-1 text-slate-600">Cancel</span>
+                  <span class="ml-auto rounded-md border border-slate-200 px-2.5 py-1 text-slate-600">Regenerate</span>
+                  <span class="rounded-md bg-brand-600 px-2.5 py-1 text-white">Apply</span>
+                </div>
+              </div>
+              <span id="ai-assistant-figure-callout-1" class="absolute left-3 top-16 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">1</span>
+              <span id="ai-assistant-figure-callout-2" class="absolute right-3 top-16 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
+              <span id="ai-assistant-figure-callout-3" class="absolute bottom-2 right-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">3</span>
+            </div>
+            <figcaption id="ai-assistant-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Your original text · ② The AI result for comparison · ③ Apply replaces the text, Regenerate tries again</figcaption>
+          </figure>
+        </section>
+
+        <!-- Annotating images -->
+        <section id="image-markup" class="doc-section border-t border-slate-200 py-12">
+          <div id="image-markup-en">
+            <h2 id="image-markup-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Annotating images</h2>
+            <p id="image-markup-en-text">Open a PNG or JPEG like any other file: with <kbd>⌘</kbd><kbd>O</kbd>, from the <em>Files</em> section or by dragging it into the window. The image opens in the editor, and the <em>Image</em> section of the sidebar holds the tools.</p>
+            <ul id="image-markup-en-list">
+              <li><em>Select</em> – click a mark to move or delete it.</li>
+              <li><em>Arrow</em>, <em>Rectangle</em> and <em>Circle</em> – drag to draw.</li>
+              <li><em>Freehand</em> – draw freely with the mouse or trackpad.</li>
+              <li><em>Text</em> – click and type a comment.</li>
+            </ul>
+            <p id="image-markup-en-text-2">Set <em>Color</em>, <em>Line width</em> and <em>Text size</em> before you draw. <kbd>⌘</kbd><kbd>Z</kbd> undoes the last mark. Large images fit into the window automatically; pinch on the trackpad to zoom.</p>
+            <h3 id="image-markup-en-title-2">Save</h3>
+            <ul id="image-markup-en-list-2">
+              <li><kbd>⌘</kbd><kbd>S</kbd> writes the marks into the original image. TinyEd asks once: <em>Overwrite original?</em> – the original cannot be restored afterwards. Choose <em>Save a copy…</em> if you want to keep it.</li>
+              <li><kbd>⇧</kbd><kbd>⌘</kbd><kbd>S</kbd> saves a copy as PNG or JPEG.</li>
+              <li>TinyEd saves in the full pixel size of the original.</li>
+            </ul>
+            <div id="image-markup-en-tips" class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm">
+              <strong class="text-slate-900">Tips for bug reports:</strong> Turn on the <a id="image-markup-en-link" href="#dual-editor" class="font-semibold text-brand-600 hover:underline">dual editor</a> and open your notes on the left and the screenshot on the right. Mark the problem with a red rectangle and add a short text comment.
+            </div>
+          </div>
+          <figure id="image-markup-figure" class="mt-8">
+            <div id="image-markup-figure-window" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/15">
+              <div id="image-markup-figure-titlebar" class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3 py-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+                <span class="flex-1 text-center text-[11px] font-semibold text-slate-500">TinyEd</span><span class="w-10"></span>
+              </div>
+              <div id="image-markup-figure-body" class="flex h-64">
+                <div id="image-markup-figure-tools" class="w-32 shrink-0 border-r border-slate-200 bg-slate-50 p-2.5 text-[9px] text-slate-600">
+                  <p class="font-bold uppercase tracking-wider text-slate-400">Image</p>
+                  <div class="mt-1.5 space-y-0.5">
+                    <p class="px-1.5 py-0.5">↖ Select</p>
+                    <p class="px-1.5 py-0.5">↗ Arrow</p>
+                    <p class="rounded bg-brand-600 px-1.5 py-0.5 font-semibold text-white">▭ Rectangle</p>
+                    <p class="px-1.5 py-0.5">◯ Circle</p>
+                    <p class="px-1.5 py-0.5">✎ Freehand</p>
+                    <p class="px-1.5 py-0.5">T Text</p>
+                  </div>
+                  <p class="mt-2 text-slate-400">Color</p>
+                  <div class="mt-1 flex gap-1"><span class="h-3 w-3 rounded-full bg-brand-600 ring-2 ring-brand-100"></span><span class="h-3 w-3 rounded-full bg-yellow-400"></span><span class="h-3 w-3 rounded-full bg-blue-500"></span><span class="h-3 w-3 rounded-full bg-slate-900"></span></div>
+                  <p class="mt-2 text-slate-400">Line width</p>
+                  <div class="mt-1 h-1 rounded bg-slate-200"><div class="h-1 w-1/3 rounded bg-brand-500"></div></div>
+                </div>
+                <div id="image-markup-figure-canvas" class="relative flex-1 bg-slate-200 p-4">
+                  <div class="h-full rounded-md bg-white p-3 shadow">
+                    <div class="h-2 w-1/3 rounded bg-slate-300"></div>
+                    <div class="mt-3 grid grid-cols-3 gap-2"><div class="h-12 rounded bg-slate-100"></div><div class="h-12 rounded bg-slate-100"></div><div class="h-12 rounded bg-slate-100"></div></div>
+                    <div class="mt-3 h-1.5 w-2/3 rounded bg-slate-300"></div>
+                  </div>
+                  <div class="absolute left-[38%] top-[42%] h-16 w-[30%] rounded border-2 border-brand-600"></div>
+                  <p class="absolute bottom-6 left-[38%] text-[11px] font-bold text-brand-600">Button is cut off</p>
+                </div>
+              </div>
+              <div id="image-markup-figure-status" class="border-t border-slate-200 bg-slate-50 px-3 py-1.5 text-[9px] text-slate-500">1440 × 900 px</div>
+              <span id="image-markup-figure-callout-1" class="absolute left-[7.3rem] top-20 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">1</span>
+              <span id="image-markup-figure-callout-2" class="absolute left-[7.3rem] bottom-16 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
+              <span id="image-markup-figure-callout-3" class="absolute right-6 top-16 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">3</span>
+            </div>
+            <figcaption id="image-markup-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Tools in the Image section · ② Color and line width · ③ Your marks on the image</figcaption>
+          </figure>
+        </section>
+
+        <!-- Kanban boards -->
+        <section id="kanban" class="doc-section border-t border-slate-200 py-12">
+          <div id="kanban-en">
+            <h2 id="kanban-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Kanban boards</h2>
+            <p id="kanban-en-text">Plan tasks on a board with five fixed columns: <em>Backlog</em>, <em>Design</em>, <em>Engineering</em>, <em>Testing</em> and <em>Done</em>. A board is a <code>.kan</code> file. TinyEd stores new boards in <em>iCloud Drive › TinyEd › Kanban</em> and lists them in the <em>Kanban</em> section of the sidebar.</p>
+            <h3 id="kanban-en-title-2">Create and open a board</h3>
+            <ul id="kanban-en-list">
+              <li>Choose <em>File › New Kanban Board</em> (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd>) or use the <em>New</em> button.</li>
+              <li>Click a board in the <em>Kanban</em> section to open it. It appears in the <em>Kanban</em> tab of the header – this tab only shows while a board is open.</li>
+              <li>Close the board with the <em>✕</em> on its tab.</li>
+            </ul>
+            <h3 id="kanban-en-title-3">Work with cards</h3>
+            <ul id="kanban-en-list-2">
+              <li>Click <em>Add card</em> at the bottom of a column.</li>
+              <li>A card has a <em>Title</em>, <em>Notes</em> (up to 400 characters, with a counter), an optional <em>Owner</em> and one of eight colors.</li>
+              <li>Drag cards between columns or up and down in a column.</li>
+              <li>Right-click a card for <em>Edit card</em>, <em>Color…</em>, <em>Duplicate Card</em> and <em>Delete card</em>.</li>
+              <li>The status bar counts your cards, for example <em>12 cards · 4 done</em>.</li>
+            </ul>
+            <p id="kanban-en-text-2">Boards save themselves about one second after every change.</p>
+            <h3 id="kanban-en-title-4">Connect a document</h3>
+            <p id="kanban-en-text-3">The connector between the <em>Documents</em> and <em>Kanban</em> tabs links the open document to the board. Save the document first. When you open the board later, TinyEd opens the linked document, too. Click the connector again to <em>Disconnect</em>.</p>
+          </div>
+          <figure id="kanban-figure" class="mt-8">
+            <div id="kanban-figure-window" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/15">
+              <div id="kanban-figure-titlebar" class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3 py-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+                <span class="flex-1 text-center text-[11px] font-semibold text-slate-500">TinyEd</span><span class="w-10"></span>
+              </div>
+              <div id="kanban-figure-header" class="flex items-center gap-1.5 border-b border-slate-200 px-3 py-1.5 text-[10px]">
+                <span class="rounded-md px-2 py-0.5 text-slate-500">Documents</span>
+                <span class="text-brand-600">⟷</span>
+                <span class="rounded-md bg-slate-900 px-2 py-0.5 font-semibold text-white">Kanban ✕</span>
+              </div>
+              <div id="kanban-figure-board" class="grid grid-cols-5 gap-2 bg-slate-100 p-3 text-[9px]">
+                <div class="rounded-lg bg-slate-200/70 p-1.5">
+                  <p class="font-bold text-slate-600">Backlog</p>
+                  <div class="mt-1.5 rounded-md border-l-4 border-blue-500 bg-white p-1.5 shadow-sm">Dark mode icons</div>
+                  <div class="mt-1.5 rounded-md bg-white p-1.5 shadow-sm">PDF export</div>
+                  <p class="mt-1.5 text-center text-slate-500">+ Add card</p>
+                </div>
+                <div class="rounded-lg bg-slate-200/70 p-1.5">
+                  <p class="font-bold text-slate-600">Design</p>
+                  <div class="mt-1.5 rounded-md border-l-4 border-purple-500 bg-white p-1.5 shadow-sm">New onboarding</div>
+                </div>
+                <div class="rounded-lg bg-slate-200/70 p-1.5">
+                  <p class="font-bold text-slate-600">Engineering</p>
+                  <div class="mt-1.5 rounded-md border-l-4 border-red-500 bg-white p-1.5 shadow-sm ring-2 ring-brand-500">
+                    Login bug
+                    <span class="mt-1 block w-fit rounded-full bg-slate-100 px-1.5 text-[8px] text-slate-500">agent-review</span>
+                  </div>
+                </div>
+                <div class="rounded-lg bg-slate-200/70 p-1.5">
+                  <p class="font-bold text-slate-600">Testing</p>
+                  <div class="mt-1.5 rounded-md border-l-4 border-green-500 bg-white p-1.5 shadow-sm">Faster search</div>
+                </div>
+                <div class="rounded-lg bg-slate-200/70 p-1.5">
+                  <p class="font-bold text-slate-600">Done</p>
+                  <div class="mt-1.5 rounded-md bg-white p-1.5 text-slate-400 shadow-sm">Auto updates</div>
+                  <div class="mt-1.5 rounded-md bg-white p-1.5 text-slate-400 shadow-sm">Changelog</div>
+                </div>
+              </div>
+              <div id="kanban-figure-status" class="border-t border-slate-200 bg-slate-50 px-3 py-1.5 text-[9px] text-slate-500">7 cards · 2 done</div>
+              <span id="kanban-figure-callout-1" class="absolute left-[4.6rem] top-[1.9rem] flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">1</span>
+              <span id="kanban-figure-callout-2" class="absolute left-[48%] top-[4.8rem] flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
+              <span id="kanban-figure-callout-3" class="absolute bottom-9 left-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">3</span>
+            </div>
+            <figcaption id="kanban-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Connector between document and board · ② A card with color, owner and highlight after an agent changed it · ③ Add card</figcaption>
+          </figure>
+        </section>
+
+        <!-- Whiteboards -->
+        <section id="whiteboards" class="doc-section border-t border-slate-200 py-12">
+          <div id="whiteboards-en">
+            <h2 id="whiteboards-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Whiteboards</h2>
+            <p id="whiteboards-en-text">Sketch diagrams, flows and wireframes on an endless canvas. The whiteboard is based on <strong>Excalidraw</strong>. Files use the <code>.excalidraw</code> format, so you can also open them on excalidraw.com.</p>
+            <ul id="whiteboards-en-list">
+              <li>Choose <em>File › New Whiteboard</em> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd>) or use the <em>New</em> button.</li>
+              <li>The <em>Whiteboards</em> section of the sidebar lists your whiteboards. Click one to open it in the <em>Whiteboard</em> tab.</li>
+              <li>Close it with the <em>✕</em> on its tab.</li>
+              <li>The status bar shows how many elements are on the canvas.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="doc-section border-t border-slate-200 py-12">
+          <div id="projects-en">
+            <h2 id="projects-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Projects</h2>
+            <p id="projects-en-text">A project keeps a text document, a Kanban board and a whiteboard together. They all have the same name and live in one folder.</p>
+            <h3 id="projects-en-title-2">Create a project</h3>
+            <ol id="projects-en-list">
+              <li>Choose <em>File › New Project…</em> (<kbd>⌃</kbd><kbd>⌘</kbd><kbd>N</kbd>).</li>
+              <li>Enter a <em>Project name</em>. TinyEd shows where the folder will be created (<em>iCloud Drive › TinyEd</em>).</li>
+              <li>Click <em>Create</em>. TinyEd creates the folder and opens all three parts.</li>
+            </ol>
+            <p id="projects-en-text-2">The new text document already contains a prompt for AI agents, and the board is already connected to the document.</p>
+            <h3 id="projects-en-title-3">Open, save and close</h3>
+            <ul id="projects-en-list-2">
+              <li><em>File › Open Project…</em> (<kbd>⌃</kbd><kbd>⌘</kbd><kbd>O</kbd>) or a click in the <em>Projects</em> section opens a project.</li>
+              <li><em>File › Save Project</em> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>S</kbd>) saves all three parts at once.</li>
+              <li>The project capsule in the header shows the project name. Its menu offers <em>Open All Project Tabs</em>, <em>Show in Finder</em>, <em>Copy Agent Prompt</em>, <em>Change Agent Folder…</em> and <em>Close Project</em>.</li>
+            </ul>
+            <p id="projects-en-text-3">If a project is open and you open a file from another project, TinyEd opens it in a new window. Your current project stays untouched.</p>
+            <div id="projects-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> There is no hidden project file. A folder is a project when it contains files with the folder’s name. A <code>.txt</code> file you create by hand works instead of the <code>.md</code> file.
+            </div>
+          </div>
+          <figure id="projects-figure" class="mt-8">
+            <div id="projects-figure-window" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/15">
+              <div id="projects-figure-titlebar" class="flex items-center gap-1.5 border-b border-slate-200 bg-slate-100 px-3 py-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span><span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+                <span class="flex-1 text-center text-[11px] font-semibold text-slate-500">iCloud Drive › TinyEd › Website</span><span class="w-10"></span>
+              </div>
+              <div id="projects-figure-list" class="divide-y divide-slate-100 text-[11px]">
+                <div class="flex items-center gap-2 px-4 py-2"><span class="w-5 text-center">📄</span><span class="font-mono text-slate-900">Website.md</span><span class="ml-auto text-slate-400">Text and notes</span></div>
+                <div class="flex items-center gap-2 px-4 py-2"><span class="w-5 text-center">🗂️</span><span class="font-mono text-slate-900">Website.kan</span><span class="ml-auto text-slate-400">Kanban board, connected to the .md</span></div>
+                <div class="flex items-center gap-2 px-4 py-2"><span class="w-5 text-center">✏️</span><span class="font-mono text-slate-900">Website.excalidraw</span><span class="ml-auto text-slate-400">Whiteboard</span></div>
+                <div class="flex items-center gap-2 px-4 py-2"><span class="w-5 text-center">⚙️</span><span class="font-mono text-slate-900">Website.config.json</span><span class="ml-auto text-slate-400">Project settings</span></div>
+              </div>
+            </div>
+            <figcaption id="projects-figure-caption" class="mt-3 text-center text-sm text-slate-500">A project folder in the Finder: four files with the name of the folder</figcaption>
+          </figure>
+        </section>
+
+        <!-- Working with AI agents -->
+        <section id="agents" class="doc-section border-t border-slate-200 py-12">
+          <div id="agents-en">
+            <h2 id="agents-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Working with AI agents</h2>
+            <p id="agents-en-text">TinyEd works well next to coding agents such as Claude Code. You plan on the board, the agent picks up tasks and reports back on the same board.</p>
+            <h3 id="agents-en-title-2">Agent shell</h3>
+            <p id="agents-en-text-2"><em>File › Open Agent Shell</em> (<kbd>⌃</kbd><kbd>⌘</kbd><kbd>T</kbd>) opens iTerm2 in the agent folder of the project and runs <code>claude -c</code>. Without iTerm2, TinyEd uses Terminal. The first time, you choose the agent folder. Change it later with <em>Change Agent Folder…</em> in the project menu.</p>
+            <p id="agents-en-text-3">The settings live in <code>&lt;Name&gt;.config.json</code>, for example <code>{ "terminal": { "app": "iTerm2", "agentPath": "/path/to/agent", "command": "claude -c" } }</code>. You or your agent may add your own keys – TinyEd keeps them.</p>
+            <div id="agents-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> If the config file sets its own start command, TinyEd asks <em>Run start command?</em> before it runs it – and asks again whenever the command changes. If TinyEd may not control iTerm2, allow it under <em>System Settings › Privacy &amp; Security › Automation</em>.
+            </div>
+            <h3 id="agents-en-title-3">Agents on the Kanban board</h3>
+            <p id="agents-en-text-4">A <code>.kan</code> file is plain JSON. Agents may read and change it at any time, even while TinyEd is closed. If the board is open, TinyEd picks up the change within about a second, merges it card by card and highlights changed cards for a few seconds. If you and an agent change the same card, your change wins.</p>
+            <ul id="agents-en-list">
+              <li><em>Copy Agent Prompt</em> in the project menu copies the rules for agents: take a free card from <em>Backlog</em>, move it through <em>Design</em>, <em>Engineering</em> and <em>Testing</em> to <em>Done</em>, work on one card at a time and keep the notes up to date.</li>
+              <li>The <em>Owner</em> field shows who works on a card. A small capsule on the card shows the name; the tooltip tells you who changed it last and when.</li>
+              <li>Agents must not change cards that belong to someone else.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Fonts, themes and settings -->
+        <section id="appearance" class="doc-section border-t border-slate-200 py-12">
+          <div id="appearance-en">
+            <h2 id="appearance-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Fonts, themes and settings</h2>
+            <h3 id="appearance-en-title-2">Fonts</h3>
+            <p id="appearance-en-text">Pick a font in <em>Themes › Font</em>: <em>System (Monospace)</em>, JetBrains Mono, Fira Code, Cascadia Code, Victor Mono or Monaspace. All fonts come with TinyEd, you don’t need to install anything. Change the size with <kbd>⌘</kbd><kbd>+</kbd> and <kbd>⌘</kbd><kbd>−</kbd>; <kbd>⌘</kbd><kbd>0</kbd> returns to <em>Actual Size</em>.</p>
+            <h3 id="appearance-en-title-3">Color profiles</h3>
+            <p id="appearance-en-text-2">Choose a color profile in <em>Themes › Color Profile</em>: <em>Paper</em>, <em>Sepia</em>, <em>Solarized</em>, <em>Midnight</em> or <em>OMC69</em>. Selected text stays readable in every profile.</p>
+            <h3 id="appearance-en-title-4">Settings</h3>
+            <p id="appearance-en-text-3">Open <em>TinyEd › Settings…</em> with <kbd>⌘</kbd><kbd>,</kbd>.</p>
+            <ul id="appearance-en-list">
+              <li><em>Display</em> – <em>Appearance</em> <em>Light</em>, <em>Dark</em> or <em>System</em>, plus font and size.</li>
+              <li><em>AI Assistant</em> – your OpenRouter API key and the default model.</li>
+              <li><em>Claude Auth</em> – shows your Claude usage limits in the sidebar.</li>
+            </ul>
+            <h3 id="appearance-en-title-5">Claude usage limits</h3>
+            <ol id="appearance-en-list-2">
+              <li>Go to <em>Settings › Claude Auth</em> and click <em>Sign in with Claude</em>.</li>
+              <li>Sign in in your browser and approve access. TinyEd completes the sign-in automatically.</li>
+              <li>If that fails, copy the address from the browser’s address bar, paste it into TinyEd and click <em>Confirm</em>.</li>
+            </ol>
+            <p id="appearance-en-text-4">Your <em>5 h</em> and <em>7 d</em> limits then appear at the bottom of the sidebar, with the time they reset.</p>
+            <div id="appearance-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
+              <strong>Good to know:</strong> This sign-in is unofficial. It uses the public login of Claude Code with read-only access to your profile and usage. The token is stored in your keychain. <em>Sign out</em> removes it.
+            </div>
+          </div>
+        </section>
+
+        <!-- Keyboard shortcuts -->
+        <section id="shortcuts" class="doc-section border-t border-slate-200 py-12">
+          <div id="shortcuts-en">
+            <h2 id="shortcuts-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Keyboard shortcuts</h2>
+            <p id="shortcuts-en-text">The most important shortcuts at a glance.</p>
+            <table id="shortcuts-en-table" class="mt-5 w-full overflow-hidden rounded-xl border border-slate-200 text-sm">
+              <tbody class="divide-y divide-slate-200">
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>N</kbd></td><td class="px-4 py-2.5">New document</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>N</kbd></td><td class="px-4 py-2.5">New Kanban board</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd></td><td class="px-4 py-2.5">New whiteboard</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌃</kbd> <kbd>⌘</kbd> <kbd>N</kbd></td><td class="px-4 py-2.5">New project</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>O</kbd></td><td class="px-4 py-2.5">Open a file</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌃</kbd> <kbd>⌘</kbd> <kbd>O</kbd></td><td class="px-4 py-2.5">Open a project</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>1</kbd> – <kbd>9</kbd></td><td class="px-4 py-2.5">Open a recent file</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>S</kbd></td><td class="px-4 py-2.5">Save</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>S</kbd></td><td class="px-4 py-2.5">Save As / save an image as a copy</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>S</kbd></td><td class="px-4 py-2.5">Save project</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>Z</kbd></td><td class="px-4 py-2.5">Undo</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>Z</kbd></td><td class="px-4 py-2.5">Redo</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>F</kbd></td><td class="px-4 py-2.5">Find</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>G</kbd> / <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>G</kbd></td><td class="px-4 py-2.5">Find next / previous</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>F</kbd></td><td class="px-4 py-2.5">Find and replace</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>A</kbd></td><td class="px-4 py-2.5">AI assistant</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd></td><td class="px-4 py-2.5">Markdown: source or formatted</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⇥</kbd></td><td class="px-4 py-2.5">Switch between the two editors</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌃</kbd> <kbd>⌘</kbd> <kbd>S</kbd></td><td class="px-4 py-2.5">Show or hide the sidebar</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>−</kbd> / <kbd>⌘</kbd> <kbd>0</kbd></td><td class="px-4 py-2.5">Bigger, smaller, actual font size</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌃</kbd> <kbd>⌘</kbd> <kbd>T</kbd></td><td class="px-4 py-2.5">Open the agent shell</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>,</kbd></td><td class="px-4 py-2.5">Settings</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>/</kbd></td><td class="px-4 py-2.5">Search this manual</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="doc-section border-t border-slate-200 py-12">
+          <div id="faq-en">
+            <h2 id="faq-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">FAQ</h2>
+            <div id="faq-en-list" class="mt-5 space-y-3">
+              <details id="faq-en-1" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">Do I need an API key to use TinyEd?</summary>
+                <p class="text-sm">No. You only need an OpenRouter API key for the AI assistant. Everything else works without a key and without an account.</p>
+              </details>
+              <details id="faq-en-2" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">TinyEd says “Invalid API key”. What now?</summary>
+                <p class="text-sm">Check the key on openrouter.ai/keys and paste it again in <em>Settings › AI Assistant</em>. TinyEd tests the key when you click <em>Save</em>. Make sure your OpenRouter account has credit.</p>
+              </details>
+              <details id="faq-en-3" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">Where does TinyEd save my files?</summary>
+                <p class="text-sm">Wherever you choose in the save dialog. New boards, whiteboards and projects go to the <em>TinyEd</em> folder in iCloud Drive, or to <em>Documents</em> without iCloud Drive. For a project, use <em>Show in Finder</em> in the project menu.</p>
+              </details>
+              <details id="faq-en-4" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">Can I get the original image back after saving?</summary>
+                <p class="text-sm">No. <kbd>⌘</kbd><kbd>S</kbd> bakes the marks into the image for good – that’s why TinyEd asks first. If you want to keep the original, use <em>Save a copy…</em> or <kbd>⇧</kbd><kbd>⌘</kbd><kbd>S</kbd>.</p>
+              </details>
+              <details id="faq-en-5" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">Why can’t I type in my Markdown file?</summary>
+                <p class="text-sm">You are in the formatted view, which is read-only. Press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> to switch back to the source view.</p>
+              </details>
+              <details id="faq-en-6" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">Can an agent and I edit the same board at the same time?</summary>
+                <p class="text-sm">Yes. TinyEd merges changes card by card. If both of you change the same card, your change wins. Cards the agent changed are highlighted for a few seconds.</p>
+              </details>
+              <details id="faq-en-7" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">macOS asks for my keychain password when TinyEd starts.</summary>
+                <p class="text-sm">TinyEd stores your API key and Claude sign-in in the keychain. Enter your password and click <em>Always Allow</em> – then macOS stops asking.</p>
+              </details>
+              <details id="faq-en-8" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
+                <summary class="cursor-pointer font-semibold text-slate-900">How do I update TinyEd?</summary>
+                <p class="text-sm">TinyEd looks for updates once a day and offers to install them. To check right away, choose <em>TinyEd › Check for Updates…</em>.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="border-t border-slate-200 bg-slate-50">
+    <div id="footer-inner" class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-slate-500 sm:px-6">
+      <p id="footer-copyright">© <span id="footer-year">2026</span> TinyEd</p>
+      <a id="footer-privacy" href="datenschutz.html" lang="de" hreflang="de" class="font-semibold text-brand-600 hover:underline">Datenschutz</a>
+      <a id="footer-top" href="#" class="font-semibold text-brand-600 hover:underline">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var lang = document.documentElement.lang || 'en';
+
+      // Year in the footer
+      var year = document.getElementById('footer-year');
+      if (year) { year.textContent = new Date().getFullYear(); }
+
+      // Language buttons keep the current section
+      var langButtons = document.querySelectorAll('[data-lang-btn]');
+      for (var b = 0; b < langButtons.length; b++) {
+        langButtons[b].addEventListener('click', function () { this.hash = location.hash; });
+      }
+
+      // Search
+      var input = document.getElementById('header-search-input');
+      var count = document.getElementById('header-search-count');
+      var empty = document.getElementById('search-empty');
+      var sections = document.querySelectorAll('.doc-section');
+
+      function tocItem(id) {
+        var link = document.querySelector('#toc a[href="#' + id + '"]');
+        return link ? link.parentNode : null;
+      }
+
+      function clearMarks() {
+        var marks = document.querySelectorAll('mark.hit');
+        for (var i = 0; i < marks.length; i++) {
+          var parent = marks[i].parentNode;
+          parent.replaceChild(document.createTextNode(marks[i].textContent), marks[i]);
+          parent.normalize();
+        }
+      }
+
+      function search() {
+        clearMarks();
+        var query = input.value.replace(/^\s+|\s+$/g, '').toLowerCase();
+        var total = 0;
+        var visible = 0;
+        for (var s = 0; s < sections.length; s++) {
+          var section = sections[s];
+          var wrapper = document.getElementById(section.id + '-' + lang);
+          var hits = 0;
+          if (query && wrapper) {
+            var walker = document.createTreeWalker(wrapper, NodeFilter.SHOW_TEXT, null, false);
+            var nodes = [];
+            var current;
+            while ((current = walker.nextNode())) { nodes.push(current); }
+            for (var n = 0; n < nodes.length; n++) {
+              var node = nodes[n];
+              var index = node.nodeValue.toLowerCase().indexOf(query);
+              while (index !== -1) {
+                var match = node.splitText(index);
+                var rest = match.splitText(query.length);
+                var mark = document.createElement('mark');
+                mark.className = 'hit';
+                match.parentNode.replaceChild(mark, match);
+                mark.appendChild(match);
+                hits++;
+                var el = mark.parentNode;
+                while (el && el !== wrapper) {
+                  if (el.tagName === 'DETAILS') { el.open = true; }
+                  el = el.parentNode;
+                }
+                node = rest;
+                index = node.nodeValue.toLowerCase().indexOf(query);
+              }
+            }
+          }
+          var show = !query || hits > 0;
+          section.classList.toggle('hidden', !show);
+          var item = tocItem(section.id);
+          if (item) { item.classList.toggle('hidden', !show); }
+          if (show) { visible++; }
+          total += hits;
+        }
+        empty.classList.toggle('hidden', visible > 0);
+        count.textContent = query ? String(total) : '';
+      }
+
+      input.addEventListener('input', search);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          var first = document.querySelector('mark.hit');
+          if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        } else if (e.key === 'Escape') {
+          input.value = '';
+          search();
+          input.blur();
+        }
+      });
+
+      // "/" or Cmd/Ctrl+K focuses the search
+      document.addEventListener('keydown', function (e) {
+        var t = e.target;
+        var tag = t && t.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) { return; }
+        if (e.key === '/' || ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K'))) {
+          e.preventDefault();
+          input.focus();
+          input.select();
+        }
+      });
+
+      // Highlight the current section in the table of contents
+      if ('IntersectionObserver' in window) {
+        var links = document.querySelectorAll('#toc a');
+        var observer = new IntersectionObserver(function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) { continue; }
+            var id = entries[i].target.id;
+            for (var j = 0; j < links.length; j++) {
+              links[j].classList.toggle('active', links[j].getAttribute('href') === '#' + id);
+            }
+          }
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        for (var o = 0; o < sections.length; o++) { observer.observe(sections[o]); }
+      }
+    })();
+  </script>
+</body>
+</html>
