@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TinyEd – Manual</title>
-  <meta name="description" content="The TinyEd manual: writing and editing text, find and replace, the dual editor, the AI assistant, image markup, Kanban boards, whiteboards, projects, the agent shell, themes and keyboard shortcuts.">
+  <meta name="description" content="The manual for TinyEd, the agentic editor for macOS: writing and editing text, find and replace, the dual editor, agents, image markup, Kanban boards, whiteboards, projects, the agent shell, themes and keyboard shortcuts.">
   <style>
     mark.hit { background: #f7dcdb; color: #5a0100; border-radius: 3px; padding: 0 1px; }
     kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .75em; padding: .1em .45em;
@@ -48,7 +48,7 @@
       <div id="hero-inner" class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
         <p id="hero-eyebrow" class="text-sm font-semibold uppercase tracking-widest text-brand-100">User manual</p>
         <h1 id="hero-title" class="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">Write, plan and sketch in one small Mac app.</h1>
-        <p id="hero-text" class="mt-5 max-w-2xl text-lg text-slate-300">TinyEd is a small text editor for macOS with a dual editor, an AI assistant, image markup, Kanban boards and whiteboards. This manual shows you how everything works.</p>
+        <p id="hero-text" class="mt-5 max-w-2xl text-lg text-slate-300">TinyEd is an agentic editor for macOS: a small, fast editor for text, Kanban boards and whiteboards in which agents write, correct and translate for you, turn notes into tasks and draw sketches. This manual shows you how everything works.</p>
         <div id="hero-buttons" class="mt-8 flex flex-wrap gap-3">
           <a id="hero-button-start" href="#getting-started" class="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-brand-900/40 transition hover:bg-brand-500">Get started</a>
           <a id="hero-button-shortcuts" href="#shortcuts" class="rounded-xl border border-white/20 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10">Keyboard shortcuts</a>
@@ -66,12 +66,12 @@
           <li><a href="#text-editing" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Writing and editing text</a></li>
           <li><a href="#find-replace" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Find and replace</a></li>
           <li><a href="#dual-editor" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Dual editor</a></li>
-          <li><a href="#ai-assistant" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">AI assistant</a></li>
+          <li><a href="#ai-assistant" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Agents</a></li>
           <li><a href="#image-markup" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Annotating images</a></li>
           <li><a href="#kanban" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Kanban boards</a></li>
           <li><a href="#whiteboards" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Whiteboards</a></li>
           <li><a href="#projects" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Projects</a></li>
-          <li><a href="#agents" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Working with AI agents</a></li>
+          <li><a href="#agents" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Working with coding agents</a></li>
           <li><a href="#appearance" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Fonts, themes and settings</a></li>
           <li><a href="#shortcuts" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">Keyboard shortcuts</a></li>
           <li><a href="#faq" class="block rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100">FAQ</a></li>
@@ -85,7 +85,7 @@
         <section id="getting-started" class="doc-section pb-12">
           <div id="getting-started-en">
             <h2 id="getting-started-en-title" class="text-3xl font-extrabold tracking-tight text-slate-900">Getting started</h2>
-            <p id="getting-started-en-text">TinyEd is a small, fast editor for macOS. It opens plain text, Markdown and source code. You can also annotate screenshots, plan tasks on Kanban boards and sketch on whiteboards – all in one window.</p>
+            <p id="getting-started-en-text">TinyEd is a small, fast agentic editor for macOS. It opens plain text, Markdown and source code. You can also annotate screenshots, plan tasks on Kanban boards and sketch on whiteboards – all in one window. Agents help along the way: they polish and translate your text, turn notes into Kanban cards and draw sketches on the whiteboard.</p>
             <h3 id="getting-started-en-title-2">Install TinyEd</h3>
             <ol id="getting-started-en-list">
               <li>Download the latest <code>TinyEd.dmg</code> from the <a id="getting-started-en-link" href="https://github.com/omc69/TinyEd--/releases/latest" class="font-semibold text-brand-600 hover:underline">TinyEd releases page</a>.</li>
@@ -98,10 +98,10 @@
             <ul id="getting-started-en-list-2">
               <li>A Mac with macOS 14 Sonoma or later.</li>
               <li>Optional: iCloud Drive. TinyEd stores new files in the <em>TinyEd</em> folder in iCloud Drive. Without iCloud Drive it uses your <em>Documents</em> folder.</li>
-              <li>Optional: your own OpenRouter API key for the <a id="getting-started-en-link-2" href="#ai-assistant" class="font-semibold text-brand-600 hover:underline">AI assistant</a>.</li>
+              <li>Optional: your own OpenRouter API key for the <a id="getting-started-en-link-2" href="#ai-assistant" class="font-semibold text-brand-600 hover:underline">agents</a>.</li>
             </ul>
             <div id="getting-started-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
-              <strong>Good to know:</strong> Everything except the AI assistant works offline and without an account.
+              <strong>Good to know:</strong> Everything except the agents works offline and without an account.
             </div>
           </div>
         </section>
@@ -112,7 +112,7 @@
             <h2 id="main-window-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">The main window</h2>
             <p id="main-window-en-text">The window has four areas. Every command applies to the active document.</p>
             <ol id="main-window-en-list">
-              <li><strong>Sidebar</strong> – all commands in sections you can fold: <em>New</em>, <em>File</em>, <em>Files</em>, <em>Projects</em>, <em>Kanban</em>, <em>Whiteboards</em>, <em>Edit</em>, <em>View</em>, <em>AI Assistant</em>, <em>Image</em> and <em>Themes</em>. Show or hide it with <kbd>⌃</kbd><kbd>⌘</kbd><kbd>S</kbd>.</li>
+              <li><strong>Sidebar</strong> – all commands in sections you can fold: <em>New</em>, <em>File</em>, <em>Files</em>, <em>Projects</em>, <em>Kanban</em>, <em>Whiteboards</em>, <em>Edit</em>, <em>View</em>, <em>Agents</em>, <em>Image</em> and <em>Themes</em>. Show or hide it with <kbd>⌃</kbd><kbd>⌘</kbd><kbd>S</kbd>.</li>
               <li><strong>Header</strong> – the tabs <em>Documents</em>, <em>Kanban</em> and <em>Whiteboard</em>, the connector between document and board, and the file name with its save lamp.</li>
               <li><strong>Editor</strong> – where you write, annotate, plan or draw.</li>
               <li><strong>Status bar</strong> – line and column, word and character count, and the <em>Dual editor</em> switch.</li>
@@ -143,7 +143,7 @@
                     <p class="pl-3">Ideas.txt</p>
                     <p class="pl-3">Screenshot.png</p>
                   </div>
-                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">AI Assistant</p>
+                  <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">Agents</p>
                   <div class="mt-1.5 space-y-1.5"><div class="h-1.5 w-20 rounded bg-slate-300"></div><div class="h-1.5 w-14 rounded bg-slate-300"></div></div>
                   <p class="mt-3 font-bold uppercase tracking-wider text-slate-400">Themes</p>
                   <div class="mt-1.5 h-1.5 w-16 rounded bg-slate-300"></div>
@@ -196,7 +196,7 @@
             </ul>
             <p id="text-editing-en-text-2">A new document is called <em>Untitled</em>. If you close a document with unsaved changes, TinyEd asks: <em>Save</em>, <em>Don’t Save</em> or <em>Cancel</em>.</p>
             <h3 id="text-editing-en-title-3">Undo and redo</h3>
-            <p id="text-editing-en-text-3">Use <kbd>⌘</kbd><kbd>Z</kbd> to undo and <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd> to redo, or the buttons in the <em>Edit</em> section. A change made by the AI assistant is one single undo step.</p>
+            <p id="text-editing-en-text-3">Use <kbd>⌘</kbd><kbd>Z</kbd> to undo and <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd> to redo, or the buttons in the <em>Edit</em> section. A change made by an agent is one single undo step.</p>
             <h3 id="text-editing-en-title-4">Word wrap</h3>
             <p id="text-editing-en-text-4">Turn on <em>Word wrap</em> in the <em>View</em> section or under <em>View › Word Wrap</em> to wrap long lines. Turn it off to scroll horizontally instead – handy for code and logs.</p>
             <h3 id="text-editing-en-title-5">Markdown preview</h3>
@@ -277,46 +277,52 @@
           </figure>
         </section>
 
-        <!-- AI assistant -->
+        <!-- Agents -->
         <section id="ai-assistant" class="doc-section border-t border-slate-200 py-12">
           <div id="ai-assistant-en">
-            <h2 id="ai-assistant-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">AI assistant</h2>
-            <p id="ai-assistant-en-text">The AI assistant improves, corrects, translates or summarizes your text. It works on the selected text. If nothing is selected, it works on the whole document.</p>
+            <h2 id="ai-assistant-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Agents</h2>
+            <p id="ai-assistant-en-text">TinyEd is an agentic editor: every AI feature is an agent with one clear job. Text agents improve, correct, translate or summarize the selected text – if nothing is selected, the whole document. Project agents turn a selected section into Kanban cards or a sketch.</p>
             <h3 id="ai-assistant-en-title-2">Set it up once</h3>
             <ol id="ai-assistant-en-list">
               <li>Create an API key at <a id="ai-assistant-en-link" href="https://openrouter.ai/keys" class="font-semibold text-brand-600 hover:underline">openrouter.ai/keys</a>.</li>
-              <li>Open <em>TinyEd › Settings…</em> (<kbd>⌘</kbd><kbd>,</kbd>) and go to <em>AI Assistant</em>.</li>
+              <li>Open <em>TinyEd › Settings…</em> (<kbd>⌘</kbd><kbd>,</kbd>) and go to <em>Agents</em>.</li>
               <li>Paste the key (it starts with <code>sk-or-v1-</code>) and click <em>Save</em>. TinyEd checks the key right away and stores it in your keychain.</li>
-              <li>Optional: pick another <em>Default Model</em>.</li>
+              <li>Optional: pick another <em>Default Model</em>, and under <em>Models for Project Agents</em> one model each for the Kanban and the Sketch Agent.</li>
             </ol>
-            <h3 id="ai-assistant-en-title-3">The eight functions</h3>
+            <h3 id="ai-assistant-en-title-3">The text agents</h3>
             <ul id="ai-assistant-en-list-2">
-              <li><em>Improve Text</em> – clearer style, same language.</li>
-              <li><em>Grammar &amp; Spelling</em> – fixes mistakes, nothing else.</li>
-              <li><em>Translate (EN/DE)</em> – detects the language and translates English to German or German to English.</li>
-              <li><em>Summarize</em> – a short summary.</li>
-              <li><em>Expand Text</em> – adds details and full sentences.</li>
-              <li><em>Make Formal</em> – a professional, business tone.</li>
-              <li><em>Make Casual</em> – a relaxed, friendly tone.</li>
-              <li><em>Optimize Prompt</em> – rewrites a prompt for an AI so it gets better answers.</li>
+              <li><em>Editor Agent – Improve Text</em> – clearer style, same language.</li>
+              <li><em>Proofreading Agent – Grammar &amp; Spelling</em> – fixes mistakes, nothing else.</li>
+              <li><em>Translator Agent – EN ↔ DE</em> – detects the language and translates English to German or German to English.</li>
+              <li><em>Summary Agent – Summarize</em> – a short summary.</li>
+              <li><em>Writer Agent – Expand Text</em> – adds details and full sentences.</li>
+              <li><em>Business Agent – Formal Tone</em> – a professional, business tone.</li>
+              <li><em>Casual Agent – Casual Tone</em> – a relaxed, friendly tone.</li>
+              <li><em>Prompt Agent – Optimize Prompt</em> – rewrites a prompt for an AI so it gets better answers.</li>
             </ul>
-            <h3 id="ai-assistant-en-title-4">Use it</h3>
+            <h3 id="ai-assistant-en-title-4">Use a text agent</h3>
             <ol id="ai-assistant-en-list-3">
               <li>Select text, or select nothing to use the whole document.</li>
-              <li>Pick a function in the <em>AI Assistant</em> section of the sidebar or in the <em>AI</em> menu of the header. <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> opens the assistant directly.</li>
-              <li>Click <em>Process</em>. Compare <em>Original</em> and <em>AI Result</em> side by side.</li>
+              <li>Pick an agent in the <em>Agents</em> menu of the header (✨) or with a right-click › <em>Agents</em>. <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> opens the agents window directly.</li>
+              <li>The agent starts right away. Compare <em>Original</em> and <em>Agent Result</em> side by side.</li>
               <li>Not happy? Click <em>Regenerate</em> for another version.</li>
               <li>Click <em>Apply</em>. The result replaces your text – <kbd>⌘</kbd><kbd>Z</kbd> brings the original back.</li>
             </ol>
+            <h3 id="ai-assistant-en-title-5">Project agents</h3>
+            <p id="ai-assistant-en-text-2">In a <a href="#projects" class="font-semibold text-brand-600 hover:underline">project</a>, the same menus offer two more agents under <em>Project Agents</em>. Select the section they should work on first.</p>
+            <ul id="ai-assistant-en-list-4">
+              <li><em>Kanban Agent – Create Cards</em> – finds every task in the selection and suggests one card each, colored by topic (for example UI, data, tests, docs). In the preview you tick the cards you want, edit title and notes or change the color, then click <em>Add to Backlog</em>. <kbd>⌘</kbd><kbd>Z</kbd> on the board removes them again in one step.</li>
+              <li><em>Sketch Agent – Draw Sketch</em> – draws a matching diagram (flowchart, sequence, class, ER or state diagram) on the project whiteboard, next to what is already there. TinyEd switches to the whiteboard, zooms in and selects the sketch – every box and arrow can be edited. <kbd>⌘</kbd><kbd>Z</kbd> removes it.</li>
+            </ul>
             <div id="ai-assistant-en-note" class="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 text-sm text-brand-900">
-              <strong>Good to know:</strong> Links, email addresses and file paths stay exactly as they are – TinyEd checks the result and restores them if needed. Your text goes to OpenRouter only when you click <em>Process</em>. OpenRouter bills the usage to your account.
+              <strong>Good to know:</strong> Links, email addresses and file paths stay exactly as they are – TinyEd checks the result and restores them if needed. Your text goes to OpenRouter only when you start an agent. OpenRouter bills the usage to your account.
             </div>
           </div>
           <figure id="ai-assistant-figure" class="mt-8">
             <div id="ai-assistant-figure-stage" class="relative rounded-2xl bg-slate-200 p-5 sm:p-8">
               <div id="ai-assistant-figure-card" class="rounded-[20px] bg-white p-4 shadow-2xl">
                 <div id="ai-assistant-figure-head" class="flex items-center justify-between text-[11px] font-bold text-slate-900">
-                  <span><span class="text-purple-500">✨</span> AI Text Assistant</span><span class="text-slate-400">✕</span>
+                  <span><span class="text-purple-500">✨</span> Agents · Editor Agent – Improve Text</span><span class="text-slate-400">✕</span>
                 </div>
                 <div id="ai-assistant-figure-columns" class="mt-3 grid grid-cols-[1fr_auto_1fr] items-stretch gap-2 text-[10px]">
                   <div>
@@ -325,7 +331,7 @@
                   </div>
                   <div class="flex items-center text-slate-400">→</div>
                   <div>
-                    <p class="font-semibold text-purple-600">AI Result</p>
+                    <p class="font-semibold text-purple-600">Agent Result</p>
                     <div class="mt-1 h-24 rounded-lg border border-purple-200 bg-purple-50 p-2 font-mono text-slate-700">This release fixes the login bug and makes exporting faster.</div>
                   </div>
                 </div>
@@ -339,7 +345,7 @@
               <span id="ai-assistant-figure-callout-2" class="absolute right-3 top-16 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">2</span>
               <span id="ai-assistant-figure-callout-3" class="absolute bottom-2 right-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-[11px] font-bold text-white ring-4 ring-white">3</span>
             </div>
-            <figcaption id="ai-assistant-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Your original text · ② The AI result for comparison · ③ Apply replaces the text, Regenerate tries again</figcaption>
+            <figcaption id="ai-assistant-figure-caption" class="mt-3 text-center text-sm text-slate-500">① Your original text · ② The agent result for comparison · ③ Apply replaces the text, Regenerate tries again</figcaption>
           </figure>
         </section>
 
@@ -502,7 +508,7 @@
               <li>Enter a <em>Project name</em>. TinyEd shows where the folder will be created (<em>iCloud Drive › TinyEd</em>).</li>
               <li>Click <em>Create</em>. TinyEd creates the folder and opens all three parts.</li>
             </ol>
-            <p id="projects-en-text-2">The new text document already contains a prompt for AI agents, and the board is already connected to the document.</p>
+            <p id="projects-en-text-2">The new text document already contains a prompt for coding agents, and the board is already connected to the document.</p>
             <h3 id="projects-en-title-3">Open, save and close</h3>
             <ul id="projects-en-list-2">
               <li><em>File › Open Project…</em> (<kbd>⌃</kbd><kbd>⌘</kbd><kbd>O</kbd>) or a click in the <em>Projects</em> section opens a project.</li>
@@ -531,10 +537,10 @@
           </figure>
         </section>
 
-        <!-- Working with AI agents -->
+        <!-- Working with coding agents -->
         <section id="agents" class="doc-section border-t border-slate-200 py-12">
           <div id="agents-en">
-            <h2 id="agents-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Working with AI agents</h2>
+            <h2 id="agents-en-title" class="text-2xl font-extrabold tracking-tight text-slate-900">Working with coding agents</h2>
             <p id="agents-en-text">TinyEd works well next to coding agents such as Claude Code. You plan on the board, the agent picks up tasks and reports back on the same board.</p>
             <h3 id="agents-en-title-2">Agent shell</h3>
             <p id="agents-en-text-2"><em>File › Open Agent Shell</em> (<kbd>⌃</kbd><kbd>⌘</kbd><kbd>T</kbd>) opens iTerm2 in the agent folder of the project and runs <code>claude -c</code>. Without iTerm2, TinyEd uses Terminal. The first time, you choose the agent folder. Change it later with <em>Change Agent Folder…</em> in the project menu.</p>
@@ -564,7 +570,7 @@
             <p id="appearance-en-text-3">Open <em>TinyEd › Settings…</em> with <kbd>⌘</kbd><kbd>,</kbd>.</p>
             <ul id="appearance-en-list">
               <li><em>Display</em> – <em>Appearance</em> <em>Light</em>, <em>Dark</em> or <em>System</em>, plus font and size.</li>
-              <li><em>AI Assistant</em> – your OpenRouter API key and the default model.</li>
+              <li><em>Agents</em> – your OpenRouter API key, the default model and the models for the project agents.</li>
               <li><em>Claude Auth</em> – shows your Claude usage limits in the sidebar.</li>
             </ul>
             <h3 id="appearance-en-title-5">Claude usage limits</h3>
@@ -602,7 +608,7 @@
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>F</kbd></td><td class="px-4 py-2.5">Find</td></tr>
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌘</kbd> <kbd>G</kbd> / <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>G</kbd></td><td class="px-4 py-2.5">Find next / previous</td></tr>
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>F</kbd></td><td class="px-4 py-2.5">Find and replace</td></tr>
-                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>A</kbd></td><td class="px-4 py-2.5">AI assistant</td></tr>
+                <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>A</kbd></td><td class="px-4 py-2.5">Agents</td></tr>
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd></td><td class="px-4 py-2.5">Markdown: source or formatted</td></tr>
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⇧</kbd> <kbd>⇥</kbd></td><td class="px-4 py-2.5">Switch between the two editors</td></tr>
                 <tr><td class="w-40 bg-slate-50 px-4 py-2.5"><kbd>⌃</kbd> <kbd>⌘</kbd> <kbd>S</kbd></td><td class="px-4 py-2.5">Show or hide the sidebar</td></tr>
@@ -622,11 +628,11 @@
             <div id="faq-en-list" class="mt-5 space-y-3">
               <details id="faq-en-1" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
                 <summary class="cursor-pointer font-semibold text-slate-900">Do I need an API key to use TinyEd?</summary>
-                <p class="text-sm">No. You only need an OpenRouter API key for the AI assistant. Everything else works without a key and without an account.</p>
+                <p class="text-sm">No. You only need an OpenRouter API key for the agents. Everything else works without a key and without an account.</p>
               </details>
               <details id="faq-en-2" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
                 <summary class="cursor-pointer font-semibold text-slate-900">TinyEd says “Invalid API key”. What now?</summary>
-                <p class="text-sm">Check the key on openrouter.ai/keys and paste it again in <em>Settings › AI Assistant</em>. TinyEd tests the key when you click <em>Save</em>. Make sure your OpenRouter account has credit.</p>
+                <p class="text-sm">Check the key on openrouter.ai/keys and paste it again in <em>Settings › Agents</em>. TinyEd tests the key when you click <em>Save</em>. Make sure your OpenRouter account has credit.</p>
               </details>
               <details id="faq-en-3" class="group rounded-xl border border-slate-200 p-4 open:bg-slate-50">
                 <summary class="cursor-pointer font-semibold text-slate-900">Where does TinyEd save my files?</summary>
